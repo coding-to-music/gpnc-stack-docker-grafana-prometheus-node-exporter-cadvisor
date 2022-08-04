@@ -1,0 +1,21 @@
+{
+  "name": "gpnc-stack-docker-grafana-prometheus-node-exporter-cadvisor",
+  "version": "1.0.0",
+  "description": "Grafana Prometheus Node-Exporter cAdvisor - Docker Monitoring Stack",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "git add . && git commit -m Build && git push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruanbekker/docker-monitoring-stack-gpnc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruanbekker/docker-monitoring-stack-gpnc/issues"
+  },
+  "homepage": "https://github.com/ruanbekker/docker-monitoring-stack-gpnc#readme"
+}
