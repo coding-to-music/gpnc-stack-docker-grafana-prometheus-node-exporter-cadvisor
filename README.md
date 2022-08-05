@@ -30,6 +30,19 @@ git push -u origin main
 
 docker compose up
 
+docker network ls
+
+```
+NETWORK ID     NAME                                                                  DRIVER    SCOPE
+9974eaf1ac60   bridge                                                                bridge    local
+c91539b9c647   docker_gwbridge                                                       bridge    local
+847609b30a07   gpnc-stack-docker-grafana-prometheus-node-exporter-cadvisor-default   bridge    local
+d2f1618cf9a9   host                                                                  host      local
+sbktjttz32le   ingress                                                               overlay   swarm
+b2b311f76507   monitoring                                                            bridge    local
+54cfc9978bc1   none                                                                  null      local
+```
+
 ## Endpoints
 
 The following endpoints are available:
