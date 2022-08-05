@@ -1,7 +1,6 @@
-version: '3.8'
+version: "3.8"
 
-x-logging:
-  &default-logging
+x-logging: &default-logging
   driver: "json-file"
   options:
     max-size: "1m"
@@ -16,7 +15,7 @@ services:
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-      - GF_USERS_DEFAULT_THEME=light
+      - GF_USERS_DEFAULT_THEME=dark
       - GF_LOG_MODE=console
       - GF_LOG_LEVEL=critical
       - GF_PANELS_ENABLE_ALPHA=true
@@ -39,13 +38,13 @@ services:
     container_name: prometheus
     restart: unless-stopped
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--log.level=error'
-      - '--storage.tsdb.path=/prometheus'
-      - '--storage.tsdb.retention.time=7d'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
-      - '--web.external-url=http://localhost:9090'
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--log.level=error"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=7d"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+      - "--web.external-url=http://localhost:9090"
     volumes:
       - ./configs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./configs/prometheus/recording-rules.yml:/etc/prometheus/recording-rules.yml
@@ -85,9 +84,9 @@ services:
       - /sys:/host/sys:ro
       - /:/rootfs:ro
     command:
-      - '--path.procfs=/host/proc'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points'
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.ignored-mount-points"
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
     networks:
       - monitoring
@@ -97,10 +96,10 @@ services:
     image: prom/alertmanager:${ALERTMANAGER_VERSION:-latest}
     container_name: alertmanager
     command:
-      - '--config.file=/etc/alertmanager/config.yml'
-      - '--log.level=error'
-      - '--storage.path=/alertmanager'
-      - '--web.external-url=http://localhost:9093'
+      - "--config.file=/etc/alertmanager/config.yml"
+      - "--log.level=error"
+      - "--storage.path=/alertmanager"
+      - "--web.external-url=http://localhost:9093"
     volumes:
       - ./configs/alertmanager/alertmanager-fallback-config.yml:/etc/alertmanager/config.yml
     ports:

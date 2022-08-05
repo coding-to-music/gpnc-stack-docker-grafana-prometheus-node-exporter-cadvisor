@@ -26,6 +26,23 @@ git remote add origin git@github.com:coding-to-music/gpnc-stack-docker-grafana-p
 git push -u origin main
 ```
 
+## Results
+
+docker compose up
+
+## Endpoints
+
+The following endpoints are available:
+
+| Container     | Internal Endpoint         | External Endpoint     |
+| ------------- | ------------------------- | --------------------- |
+| Grafana       | http://grafana:3000       | http://localhost:3000 |
+| Prometheus    | http://prometheus:9090    | http://localhost:9090 |
+| Node-Exporter | http://node-exporter:9100 | http://localhost:9100 |
+| cAdvisor      | http://cadvisor:8080      | N/A                   |
+| Alertmanager  | http://alertmanager:9093  | http://localhost:9093 |
+| Redis         | http://redis:6379         | http://localhost:6379 |
+
 # docker-monitoring-stack-gpnc
 
 Grafana Prometheus Node-Exporter cAdvisor - Docker Monitoring Stack
