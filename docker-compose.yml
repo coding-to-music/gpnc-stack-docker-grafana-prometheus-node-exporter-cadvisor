@@ -19,6 +19,7 @@ services:
       - GF_LOG_MODE=console
       - GF_LOG_LEVEL=critical
       - GF_PANELS_ENABLE_ALPHA=true
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/container-metrics.json
     volumes:
       - ./configs/grafana/provisioning/dashboards.yml:/etc/grafana/provisioning/dashboards/provisioning-dashboards.yaml:ro
       - ./configs/grafana/provisioning/datasources.yml:/etc/grafana/provisioning/datasources/provisioning-datasources.yaml:ro
@@ -28,7 +29,7 @@ services:
     depends_on:
       - prometheus
     ports:
-      - 3000:3000
+      - 4000:3000
     networks:
       - monitoring
     logging: *default-logging
